@@ -1,4 +1,5 @@
 from flask import Flask, make_response
+from helper import is_isbn_or_key
 
 app = Flask(__name__)
 
@@ -21,16 +22,8 @@ def search(q, page):
         page:
     :return:
     """
-    isbn_or_key = 'key'
-    if len(q) == 13 and q.isdigit():
-        isbn_or_key = 'isbn'
-
-    short_q = q.replace('-', '')
-
-    if '-' in q and len(short_q) == 10 and short_q.isdigit:
-        isbn_or_key = 'isbn'
-
-    return 'hello , flask'
+    isbn_or_key = is_isbn_or_key(q)
+    pass
 
 
 # app.add_url_rule('/hello', view_func=hello)
