@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 '''
-@File    :   http.py    
+@File    :   httper.py
 @Contact :   Johnd0712@hotmail.com
 @License :   (C)Copyright 2017-2018, Krynn.cn
 

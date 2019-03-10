@@ -1,5 +1,6 @@
 from flask import Flask, make_response
 from helper import is_isbn_or_key
+from yushu_book import YuShuBook
 
 app = Flask(__name__)
 
@@ -23,7 +24,11 @@ def search(q, page):
     :return:
     """
     isbn_or_key = is_isbn_or_key(q)
-    pass
+    if isbn_or_key == 'isbn':
+        result = YuShuBook.search_by_isbn(q)
+    else:
+        result = YuShuBook.search_by_keyword(q)
+    return result
 
 
 # app.add_url_rule('/hello', view_func=hello)
