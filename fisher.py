@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, make_response
 from helper import is_isbn_or_key
 from yushu_book import YuShuBook
@@ -28,7 +30,7 @@ def search(q, page):
         result = YuShuBook.search_by_isbn(q)
     else:
         result = YuShuBook.search_by_keyword(q)
-    return result
+    return json.dumps(result), 200, {'content-type': 'application/json'}
 
 
 # app.add_url_rule('/hello', view_func=hello)
