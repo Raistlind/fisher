@@ -11,9 +11,9 @@
 """
 
 # import lib
-from flask import jsonify, Blueprint
+from flask import jsonify
 
-from app.web import web
+from app.web.blueprint import web
 from helper import is_isbn_or_key
 from yushu_book import YuShuBook
 

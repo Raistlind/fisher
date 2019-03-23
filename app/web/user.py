@@ -12,13 +12,13 @@
 
 
 # import lib
-from app.web import web
-
-
-@web.route('url')
-def login():
-    pass
-
-
-if __name__ == '__main__':
-    pass
+# from app.web import web
+#
+#
+# @web.route('url')
+# def login():
+#     pass
+#
+#
+# if __name__ == '__main__':
+#     pass
