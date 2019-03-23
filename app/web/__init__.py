@@ -12,8 +12,10 @@
 
 # import lib
 from flask import Blueprint
+from app.web import book, user
 
 web = Blueprint('web', __name__)
+
 
 if __name__ == '__main__':
     pass
