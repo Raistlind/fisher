@@ -1,23 +1,24 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 """
-@File    :   __init__.py
+@File    :   __init__.py    
 @Contact :   Johnd0712@hotmail.com
 @License :   (C)Copyright 2017-2018, Krynn.cn
 
 @Modify Time         @Author      @Version    @Desciption
 -----------------    ---------    --------    -----------
-2019-03-23 22:54      Raistlind    1.0         None
+2019-03-23 22:53      Raistlind    1.0         None
 """
 
 # import lib
+from flask import Flask
 
 
-# app.add_url_rule('/hello', view_func=hello)
-from app import create_app
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object('config')
+    return app
 
-app = create_app()
 
-# 生产环境nginx+uwsgi
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=81)
+    pass

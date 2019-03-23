@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 """
-@File    :   __init__.py
+@File    :   __init__.py    
 @Contact :   Johnd0712@hotmail.com
 @License :   (C)Copyright 2017-2018, Krynn.cn
 
@@ -13,11 +13,5 @@
 # import lib
 
 
-# app.add_url_rule('/hello', view_func=hello)
-from app import create_app
-
-app = create_app()
-
-# 生产环境nginx+uwsgi
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=81)
+    pass
