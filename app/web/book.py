@@ -11,13 +11,14 @@
 """
 
 # import lib
-from flask import jsonify
+from flask import jsonify, Blueprint
 
+from app.web import web
 from helper import is_isbn_or_key
 from yushu_book import YuShuBook
 
 
-@app.route('/book/search/<q>/<page>')
+@web.route('/book/search/<q>/<page>')
 def search(q, page):
     """
         q:普通关键字、ISBN
