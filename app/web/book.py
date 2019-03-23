@@ -13,7 +13,7 @@
 # import lib
 from flask import jsonify
 
-from app.web.blueprint import web
+from . import web
 from helper import is_isbn_or_key
 from yushu_book import YuShuBook
 
