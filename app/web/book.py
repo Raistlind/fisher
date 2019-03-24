@@ -11,27 +11,36 @@
 """
 
 # import lib
-from flask import jsonify
+from flask import jsonify, request
 
+from app.forms.book import SearchForm
 from . import web
 from helper import is_isbn_or_key
 from yushu_book import YuShuBook
 
 
-@web.route('/book/search/<q>/<page>')
-def search(q, page):
+@web.route('/book/search')
+def search():
     """
         q:普通关键字、ISBN
         page:
     :return:
     """
-    isbn_or_key = is_isbn_or_key(q)
-    if isbn_or_key == 'isbn':
-        result = YuShuBook.search_by_isbn(q)
+
+    # q = request.args['q']
+    # page = request.args['page']
+    form = SearchForm(request.args)
+    if form.validate():
+        q = form.q.data.strip()
+        isbn_or_key = is_isbn_or_key(q)
+        if isbn_or_key == 'isbn':
+            result = YuShuBook.search_by_isbn(q)
+        else:
+            result = YuShuBook.search_by_keyword(q)
+        return jsonify(result)
+        # return json.dumps(result), 200, {'content-type': 'application/json'}
     else:
-        result = YuShuBook.search_by_keyword(q)
-    return jsonify(result)
-    # return json.dumps(result), 200, {'content-type': 'application/json'}
+        return jsonify({'msg': '参数校验失败'})
 
 
 if __name__ == '__main__':
