@@ -21,3 +21,5 @@ app = create_app()
 # 生产环境nginx+uwsgi
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=app.config['DEBUG'], port=81)
+    # 可加参数 threaded=True 多线程
+    # 可加参数 processes=1 多进程， 数字代表进程数
