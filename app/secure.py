@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 """
-@File    :   config.py    
+@File    :   secure.py
 @Contact :   Johnd0712@hotmail.com
 @License :   (C)Copyright 2017-2018, Krynn.cn
 
@@ -14,5 +14,4 @@
 
 DEBUG = False
 
-if __name__ == '__main__':
-    pass
+SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:123456@localhost:8889/fisher'
