@@ -11,6 +11,8 @@
 """
 
 # import lib
+import json
+
 from flask import jsonify, request
 
 from app.forms.book import SearchForm
@@ -45,7 +47,8 @@ def search():
             yushu_book.search_by_keyword(q, page)
 
         books.fill(yushu_book, q)
-        return jsonify(books.__dict__)
+        return json.dumps(books, default=lambda o: o.__dict__)
+        # return jsonify(books.__dict__)
         # return json.dumps(result), 200, {'content-type': 'application/json'}
     else:
         return jsonify(form.errors)
