@@ -5,15 +5,15 @@
 @Contact :   Johnd0712@hotmail.com
 @License :   (C)Copyright 2017-2018, Krynn.cn
 
-@Modify Time         @Author      @Version    @Desciption
+@Modify Time         @Author      @Version    @Description
 -----------------    ---------    --------    -----------
-2019-03-23 21:10      Raistlind    1.0         None
+2019-03-23 21:10      RaistlinD    1.0         None
 """
 
 # import lib
 import json
 
-from flask import jsonify, request
+from flask import jsonify, request, render_template
 
 from app.forms.book import SearchForm
 from app.view_models.book import BookViewModel, BookCollection
@@ -52,6 +52,15 @@ def search():
         # return json.dumps(result), 200, {'content-type': 'application/json'}
     else:
         return jsonify(form.errors)
+
+
+@web.route('/test')
+def test():
+    r = {
+        'name': 'raistlind',
+        'age': 88
+    }
+    return render_template('test.html', data=r)
 
 
 #
