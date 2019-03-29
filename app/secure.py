@@ -12,6 +12,7 @@
 
 # import lib
 
-DEBUG = False
+DEBUG = True
 
 SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:123456@localhost:8889/fisher'
+SECRET_KEY = 'adedfefdgrgdw'

@@ -13,7 +13,7 @@
 # import lib
 import json
 
-from flask import jsonify, request, render_template
+from flask import jsonify, request, render_template, flash
 
 from app.forms.book import SearchForm
 from app.view_models.book import BookViewModel, BookCollection
@@ -60,6 +60,7 @@ def test():
         'name': 'raistlind',
         'age': 88
     }
+    flash('this is flash')
     return render_template('test.html', data=r)
 
 
