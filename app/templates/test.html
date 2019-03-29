@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
+{{ super() }}
     {{data.age}}
+{% if data.age <18 %}
+    {{ data.school | default('noone')}}
+    {{ data.name | length()}}
+{% elif data.age ==88 %}
+do something
+{% else %}
+{{ data.age }}
+{% endif %}
 {# 注释 #}
-</body>
-</html>
+{% for key, value in data.items() %}
+{{ key }}
+{{ value }}
+<div>a</div>
+{% endfor %}
+
+{% endblock %}
