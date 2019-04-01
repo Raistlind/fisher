@@ -12,13 +12,13 @@
 
 # import lib
 from sqlalchemy import Column, Integer, String
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
 
 
 # sqlalchemy
 # Flask_SQLAlchemy
+from app.models.base import db
+
+
 class Book(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
