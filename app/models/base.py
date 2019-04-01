@@ -12,8 +12,14 @@
 
 # import lib
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, SmallInteger
 
-db = SQLAlchemyß()
+db = SQLAlchemy()
+
+
+class Base(db.Model):
+    status = Column(SmallInteger, 1)
+
 
 if __name__ == '__main__':
     pass
