@@ -11,13 +11,16 @@
 """
 
 # import lib
+from flask_login import login_required
+
 from . import web
 
 
 
 @web.route('/my/gifts')
+@login_required
 def my_gifts():
-    pass
+    return 'My Gifts'
 
 
 @web.route('/gifts/book/<isbn>')
