@@ -11,6 +11,7 @@
 """
 
 # import lib
+from flask import current_app
 from sqlalchemy import Column, Integer, Boolean, ForeignKey, String
 from sqlalchemy.orm import relationship
 
@@ -25,6 +26,12 @@ class Gift(Base):
     # bid = Column(Integer, ForeignKey('book.id'))
     isbn = Column(String(15), nullable=False)
     launched = Column(Boolean, default=False)
+
+    @classmethod
+    def recent(cls):
+        recent_gift = Gift.query.filter_by(launched=False).group_by(Gift.isbn).order_by(
+            Gift.create_datetime).limit(current_app.config['RECENT_BOOK_COUNT']).distinct().all()
+        return recent_gift
 
 
 if __name__ == '__main__':
