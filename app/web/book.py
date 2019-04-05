@@ -11,7 +11,6 @@
 """
 
 # import lib
-import json
 
 from flask import jsonify, request, render_template, flash
 
