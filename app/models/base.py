@@ -59,6 +59,5 @@ class Base(db.Model):
         else:
             return None
 
-
-if __name__ == '__main__':
-    pass
+    def delete(self):
+        self.status = 0

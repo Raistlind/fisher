@@ -24,19 +24,19 @@ class PendingStatus(Enum):
     @classmethod
     def pending_str(cls, status, key):
         key_map = {
-            1: {
+            cls.WAITING: {
                 'requester': '等待对方邮寄',
                 'gifter': '等待你邮寄'
             },
-            3: {
+            cls.REJECT: {
                 'requester': '对方已拒绝',
                 'gifter': '你已拒绝'
             },
-            4: {
+            cls.REDRAW: {
                 'requester': '你已撤销',
                 'gifter': '对方已撤销'
             },
-            2: {
+            cls.SUCCESS: {
                 'requester': '对方已邮寄',
                 'gifter': '你已邮寄，交易完成'
             }

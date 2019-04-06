@@ -58,6 +58,3 @@ class Gift(Base):
             desc(Gift.create_time)).limit(current_app.config['RECENT_BOOK_COUNT']).distinct().all()
         return recent_gift
 
-
-if __name__ == '__main__':
-    pass
