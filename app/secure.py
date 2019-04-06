@@ -20,3 +20,12 @@ SQLALCHEMY_COMMIT_TEARDOWN = True
 
 SECRET_KEY = 'adedfefdgrgdw'
 
+# Email配置
+MAIL_SERVER = 'smtp.163.com'
+MAIL_PORT = 465
+MAIL_USE_SSL = True
+MAIL_USE_TSL = False
+MAIL_USERNAME = 'jojo@163.com'
+MAIL_PASSWORD = 'abc'
+MAIL_SUBJECT_PREFIX = '[FISHER]'
+MAIL_SENDER = 'FISHER <jojo@163.com>'
