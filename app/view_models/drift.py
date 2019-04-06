@@ -10,12 +10,27 @@
 2019-04-06 19:38      RaistlinD    1.0         None
 """
 
-
 # import lib
+from app.libs.enums import PendingStatus
+
+
+class DriftCollection:
+    def __init__(self, drifts, current_user_id):
+        self.data = []
+
+        self.__parse(drifts, current_user_id)
+
+    def __parse(self, drifts, current_user_id):
+        for drift in drifts:
+            temp = DriftViewModel(drift, current_user_id)
+            self.data.append(temp.data)
+
 
 class DriftViewModel:
     def __init__(self, drift, current_user_id):
         self.data = {}
+
+        self.data = self.__parse(drift, current_user_id)
 
     @staticmethod
     def requester_or_gifter(drift, current_user_id):
@@ -27,6 +42,8 @@ class DriftViewModel:
 
     def __parse(self, drift, current_user_id):
         you_are = self.requester_or_gifter(drift, current_user_id)
+        pending_status = PendingStatus.pending_str(drift.pending, you_are)
+
         r = {
             'you_are': you_are,
             'drift_id': drift.id,
@@ -37,7 +54,9 @@ class DriftViewModel:
             'operator': drift.requester_nickname if you_are != 'requester' else drift.gifter_nickname,
             'message': drift.message,
             'address': drift.address,
+            'status_str': pending_status,
             'recipient_name': drift.recipient_name,
             'mobile': drift.mobile,
             'status': drift.pending
         }
+        return r
